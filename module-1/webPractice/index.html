@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>page title</title>
+        <link id="stylesheet" rel="stylesheet" href="styles.css">
+    </head>
+    <body id="body">
+        <header>
+            <h1 id="header">Header</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+            </ul>
+        </nav>
+    <section>
+        <article>
+            <h2>Cute Dog For Sale</h2>
+            <p>$1,000,000.99</p>
+            <!-- Image -->
+            <img src="https://lavinya.net/wp-content/uploads/2022/10/f39f62-sevimli-kopek-cute-dog-150x150.jpeg" alt="Cute Doggo">
+            <a href="https://lavinya.net/en/animals/cute-dog-5375/">More information</a>
+        </article>
+        <aside id="aside">
+            <h2>Related</h2>
+            <ul>
+                <li><a href="https://www.petsmart.com/">Petsmart</a></li>
+                <li><a href="https://www.chewy.com/">Chewy</a></li>
+            </ul>
+        </aside>
+        <!-- Shipping Form -->
+        <section id="shipping">
+            <h2>Shipping Address</h2>
+            <form id="shipping-form">
+                <label for="address">Address:</label><br>
+                <input type="text" id="address" name="address"><br>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city"><br>
+                <label for="state">State:</label><br>
+                <input type="text" id="state" name="state"><br>
+                <label for="zip">Zip:</label><br>
+                <input type="text" id="zip" name="zip"><br>
+            </form>
+            <!-- Order Button -->
+            <button id="order-button">Order Now</button>
+        </section>
+    </section>
+    <footer>
+        <p id="footer">Copyright 2023 by Garrett. All rights reserved.</p>
+    </footer>
+    </body>
+    <script>
+        document.getElementById('header').innerHTML ='Hello Javascript';
+        document.getElementById('aside').style.backgroundColor ='green';
+        // Add an event listener to the order button
+        document.getElementById('order-button').addEventListener('click', function() {
+            alert('Your Order will be shipped soon.');
+            // Change stylesheet to styles2.css when the Order Now button is clicked
+            document.getElementById('stylesheet').href = 'styles2.css';
+        });
+    </script>
+</html>
+
