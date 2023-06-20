@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Dice Random Number Generator</h1>
+    <p>Which Dice Would You Like?</p>
+    <select id="diceType">
+        <option value="6">6-sided dice</option>
+        <option value="10">10-sided dice</option>
+</select>
+
+<button onclick="rollDice()">Roll the Dice</button>
+
+<p id="output"></p>
+<div id="diceImage" style="width: 100px; height: 100px;"></div>
+
+<script>
+    function rollDice() {
+        var diceType = document.getElementById("diceType").value;
+        var randomNumber = Math.floor(Math.random() * diceType) +1
+
+        document.getElementById("output").innerText = "You rolled a " + randomNumber;
+        document.getElementById("diceImage").innerHTML = '<img src="dice' + diceType + '-' + randomNumber + '.png" style="width: 100%; height: 100%;" />';
+    }
+</script>
+
+</body>
+</html>
