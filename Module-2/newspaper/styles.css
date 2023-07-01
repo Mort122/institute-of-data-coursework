@@ -4,12 +4,6 @@
     margin: 0;
 }
 
-
-
-
-
-
-
 /* Knoe Logo */
 
 .logo {
@@ -17,7 +11,7 @@
     display: block;
     float: none;
     line-height: 24px;
-    position: absolute;
+    /* position: below; */
     z-index: auto;
 }
 
@@ -25,13 +19,71 @@
     box-sizing: border-box;
     display: flex;
     float: none;
-    line-height: 24px;
+    line-height: 1.5;
     position: relative;
     z-index: auto;
-    padding: 8;
+    padding: .5rem 1rem;
+    background-color: #3751a2;
+    color: #fff;
 }
 
-body {
+/* links inside the navebar */
+.nav-items a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 25%;
+    text-align: center;
+    font-weight: 400;
+}
+
+.body {
     background: antiquewhite;
 }
+
+.middlecontainer {
+    width: 50%;
+    /* display: inline-block; */
+    float: left;
+}
+
+.textBox {
+    font-weight: 700;
+    font-size: 2rem;
+    box-sizing: border-box;
+    color: #212529;
+    text-align: left;
+    margin-bottom: .5rem;
+    line-height: 1.2;
+}
+
+.leftContainer {
+    width: 17.5%;
+    box-sizing: border-box;
+    color: white;
+    
+}
+
+.farRightContainer {
+    width: 17.5%;
+}
+
+/* the . infront of name is for classes. If you are targeting elements dont include the . */
+
+footer {
+
+}
+
+footer > div {
+    background-color: blue;
+}
+
+.masthead {
+    background-image: url("https://www.knoe.com/pf/resources/images/mastheads/backgrounds/knoe.jpg?d=341");
+    /* background-image: url("./assets/images/backgroundImageforHeader.avif"); */
+}
+
+
 
