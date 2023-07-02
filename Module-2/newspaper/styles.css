@@ -125,3 +125,19 @@ footer > div {
 main {
     display: flex;
 }
+
+.rightContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* This will create 2 columns per row */
+    grid-auto-rows: auto; /* This will adjust the row height automatically based on content */
+    gap: 10px; /* This is the gap between the grid items */
+}
+
+.rightContainer > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc; /* To see the box */
+    padding: 10px; /* Inside spacing */
+}
