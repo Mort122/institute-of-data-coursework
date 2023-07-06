@@ -120,7 +120,11 @@ main {
 }
 
 .main1 {
-    padding-left: 14.3%;
+    padding-left: 15.7%;
+}
+
+.weatherReport {
+    text-align: left;
 }
 
 
@@ -136,13 +140,19 @@ main {
     box-sizing: border-box;
 }
 
+.multiBoxes {
+    font-size: 20px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
 
-.rightContainer {
+
+.gridBox {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
-.rightContainer > div {
+.gridBox > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
