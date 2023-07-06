@@ -47,6 +47,7 @@
 .middleContainer {
     width: 1000px;
     display: flex;
+    height: 500px;
 }
 
 .top-left-image {
@@ -69,7 +70,9 @@
     height: 100vh;
     display: flex;
     color: white;
+    float: left;
 }
+
 
 
 #farRightContainer {
@@ -82,13 +85,6 @@
 
 /* the . infront of name is for classes. If you are targeting elements dont include the . */
 
-footer {
-
-}
-
-footer > div {
-    background-color: blue;
-}
 
 .masthead {
     background-image: url("https://www.knoe.com/pf/resources/images/mastheads/backgrounds/knoe.jpg?d=341");
@@ -117,27 +113,57 @@ footer > div {
     
 }
 
-.column1 {
-    float: left;
-    padding: 15px;
-}
 
 main {
     display: flex;
+    height: 425px;
 }
+
+.main1 {
+    padding-left: 14.3%;
+}
+
+
+.column1 {
+    float: left;
+    width: 250px;
+}
+
+.column1 p {
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
 
 .rightContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* This will create 2 columns per row */
-    grid-auto-rows: auto; /* This will adjust the row height automatically based on content */
-    gap: 10px; /* This is the gap between the grid items */
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .rightContainer > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc; /* To see the box */
-    padding: 10px; /* Inside spacing */
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blue;
+    text-align: center;
+    height: 100px;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+}
+
+.footer a {
+    display: inline-block;
+    text-align: center;
 }
