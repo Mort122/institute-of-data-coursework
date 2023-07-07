@@ -76,7 +76,7 @@
 
 
 #farRightContainer {
-    width: 300px;
+    width: 350px;
     height: 100vh;
     display: flex;
     color: white;
@@ -101,7 +101,6 @@
     padding-bottom: 25px;
     padding-left: 10px;
     border-radius: 90%;
-    width: 85%;
 }
 
 .row p {
@@ -125,6 +124,7 @@ main {
 
 .weatherReport {
     text-align: left;
+    font-size: large;
 }
 
 
