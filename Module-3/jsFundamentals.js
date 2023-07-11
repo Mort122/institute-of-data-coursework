@@ -1,509 +1,193 @@
-//Exercise 1
-function capitalizeFirstLetterOfEachWord(str) {
-    return str.replace(/\b\w/g, function(char) {
-      return char.toUpperCase();
-    });
-  }
-  
-  let str = 'hello world';
-  str = capitalizeFirstLetterOfEachWord(str);
-  console.log(str); 
-  // Hello World
+//Excercise 1
+"" + 1 + 0   //This = 10
+"" - 1 + 0   // = -1
+true + false // if its converted to numbers this = 1
+!true        // ! = not, so this is not true = false
+6 / "3"      // = 3
+"2" * "3"    // = 6
+4 + 5 + "px" // = 9px
+"$" + 4 + 5  // = $45
+"4" - 2      // = 2
+"4px" - 2    // = Not a number
+" -9 " + 5   // = -9 and 5
+" -9 " - 5   // = -9 -5
+null + 1     // = 1
+undefined + 1// = not a number
+undefined == null // = true
+undefined === null// = false
+" \t \n" - 2 // = -2
 
 
-  //Excercise 2 A
-function truncate(str, max) {
-    if (str.length > max) {
-      return str.slice(0, max) + '...';
-    } else {
-      return str;
-    }
-  }
- 
-  console.log(truncate("Hello, World!", 5));
-  //Hello...
-
-//Excercise 2 B
-function truncate(str, max) {
-    return str.length > max ? str.slice(0, max) + '...' : str;
-  }
-
-  console.log(truncate("Hello, World!", 5));
-  //Hello...
+//Excersise 2
+let three = "3"
+let four = "4"
+let thirty = "30"
+//what is the value of the following expressions?
+let addition = three + four
+let multiplication = three * four
+let division = three / four
+let subtraction = three - four
+let lessThan1 = three < four
+let lessThan2 = thirty < four
+//let addition = three + four. The numbers here will be processed as strings and not numbers. So this would = 34 and not be addition
 
 //Excercise 3
-const animals = ['Tiger', 'Giraffe'];
-console.log(animals); 
-
-// A
-animals.push('Elephant', 'Lion');
-console.log(animals); 
-
-// B
-animals.unshift('Monkey', 'Lemer');
-console.log(animals); 
-
-// C
-animals.sort();
-console.log(animals); 
-
-// D
-function replaceMiddleAnimal(newValue) {
-    const middleIndex = Math.floor(animals.length / 2);
-    animals[middleIndex] = newValue;
-}
-
-replaceMiddleAnimal('Zebra');
-console.log(animals); 
-
-// E
-function findMatchingAnimals(beginsWith) {
-    const matchingAnimals = animals.filter(animal => animal.toLowerCase().startsWith(beginsWith.toLowerCase()));
-    return matchingAnimals;
-}
-
-console.log(findMatchingAnimals('t')); 
-//[ 'Tiger', 'Giraffe' ]
-//[ 'Tiger', 'Giraffe', 'Elephant', 'Lion' ]
-//[ 'Monkey', 'Lemer', 'Tiger', 'Giraffe', 'Elephant', 'Lion' ]
-//[ 'Elephant', 'Giraffe', 'Lemer', 'Lion', 'Monkey', 'Tiger' ]
-//[ 'Elephant', 'Giraffe', 'Lemer', 'Zebra', 'Monkey', 'Tiger' ]
-//[ 'Tiger' ]
+if (0) console.log('#1 zero is true')
+if ("0") console.log('#2 zero is true')  // will print because "0" is true because it is a string
+if (null) console.log('null is true')
+if (-1) console.log('negative is true')  //will print because non 0 numbers are truthy
+if (1) console.log('positive is true')   //will pring because non 0 numbers are truthy
 
 //Excercise 4
-function camelCase(cssProp) {
-    return cssProp.split('-').map((word, index) => {
-      return index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1);
-    }).join('');
-  }
-  
-
-  console.log(camelCase('margin-left'));  // marginLeft
-
-
-
-
-  function camelCase1(cssProp) {
-    const words = cssProp.split('-');
-    let result = words[0];
-
-    for (let i = 1; i < words.length; i++) {
-        let word = words[i];
-        if (i !== 0) {
-            word = word.charAt(0).toUpperCase() + word.slice(1);
-        }
-        result += word;
-    }
-
-    return result;
-}
-//marginLeft
+let a = 2, b = 3;
+let result = `${a} + ${b} is ${a + b < 10 ? 'less than' : 'greater than'} 10`;
+//the += adds what is to the right of it to what is to the left and then replaces what is on the left with the new value to continue the running until the test fails (else)
 
 //Excercise 5 A
-// A  This code does not work because the variables are not defined
+var getGreeting = function(name) {
+    return 'Hello ' + name + '!';
+  };
 
 //Excercise 5 B
-// Had to install decimal.js
-const Decimal = require('decimal.js');
+var getGreeting = (name) => {
+    return 'Hello ' + name + '!';
+  };
 
-function currencyAddition(float1, float2) {
-  const decimal1 = new Decimal(float1);
-  const decimal2 = new Decimal(float2);
-
-
-  const result = decimal1.plus(decimal2);
-  return result.toNumber();
-}
-
-
-const float1 = 0.1;
-const float2 = 0.2;
-const sum = currencyAddition(float1, float2);
-console.log(sum); //0.3
-
-//Excercise 5 C
-const Decimal = require('decimal.js');
-
-function currencyOperation(float1, float2, operation) {
-  const decimal1 = new Decimal(float1);
-  const decimal2 = new Decimal(float2);
-
-  let result;
-  switch (operation) {
-    case '+':
-      result = decimal1.plus(decimal2);
-      break;
-    case '-':
-      result = decimal1.minus(decimal2);
-      break;
-    case '/':
-      result = decimal1.dividedBy(decimal2);
-      break;
-    case '*':
-      result = decimal1.times(decimal2);
-      break;
-    default:
-      throw new Error('Invalid operation');
+  //Excercise 6 A
+  const inigo = {
+    firstName: 'Inigo',
+    lastName: 'Violet',
+    greeting(person) {
+      let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `;
+      console.log(greeting + this.getCatchPhrase(person));
+    },
+    getCatchPhrase(person) {
+      return 'Nice to meet you.';
+    }
   }
+  
+  inigo.greeting(westley)
+  inigo.greeting(rugen)
 
-  return result.toNumber();
-}
-
-const float1 = 0.4;
-const float2 = 0.3;
-const operation = '+';
-const result = currencyOperation(float1, float2, operation);
-console.log(result); // 0.7
-
-//Excercise 5 D
-const Decimal = require('decimal.js');
-
-function currencyOperation(float1, float2, operation, numDecimals) {
-  const decimal1 = new Decimal(float1);
-  const decimal2 = new Decimal(float2);
-
-  Decimal.set({ precision: numDecimals });
-
-  let result;
-  switch (operation) {
-    case '+':
-      result = decimal1.plus(decimal2);
-      break;
-    case '-':
-      result = decimal1.minus(decimal2);
-      break;
-    case '/':
-      result = decimal1.dividedBy(decimal2);
-      break;
-    case '*':
-      result = decimal1.times(decimal2);
-      break;
-    default:
-      throw new Error('Invalid operation');
-  }
-
-  return result.toNumber();
-}
-
-const float1 = 0.2;
-const float2 = 0.6;
-const operation = '+';
-const numDecimals = 2;
-const result = currencyOperation(float1, float2, operation, numDecimals);
-console.log(result); //0.8
-
-//Excercise 6
-function unique(duplicatesArray) {
-    let uniqueArray = [...new Set(duplicatesArray)];
-    return uniqueArray;
-  }
-
-let arr = [1, 2, 3, 3, 4, 4, 5];
-console.log(unique(arr)); // [ 1, 2, 3, 4, 5 ]
-
-//Excercise 7 A
-const books = [
-    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
-    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
-    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
-    { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
-    { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
-    ];
-
-    function getBookTitle(bookId) {
-        const book = books.find(book => book.id === bookId);
-      
-        if (book) {
-          return book.title;
-        } else {
-          return null;
-        }
+  //Excercise 6 B
+  const inigo = {
+    firstName: 'Inigo',
+    lastName: 'Violet',
+    greeting(person) {
+      let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `;
+      console.log(greeting + this.getCatchPhrase(person));
+    },
+    getCatchPhrase(person) {
+      if (person.numFingers === 6) {
+        return 'You killed my father. Prepare to die.';
+      } else {
+        return 'Nice to meet you.';
       }
+    }
+  }
+  
+  inigo.greeting(westley)  // "Hello Westley, my name is Inigo Violet. Nice to meet you."
+  inigo.greeting(rugen)  // "Hello Count Rugen, my name is Inigo Violet. You killed my father. Prepare to die."
 
-const bookID = 3;
-const title = getBookTitle(bookID);
-console.log(title); // 1984
+  //Excercise 6 C
+  const inigo = {
+    firstName: 'Inigo',
+    lastName: 'Violet',
+    greeting(person) {
+      let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `;
+      console.log(greeting + this.getCatchPhrase(person));
+    },
+    getCatchPhrase: (person) => person.numFingers === 6 ? 'You killed my father. Prepare to die.' : 'Nice to meet you.'
+  }
+  
+  inigo.greeting(westley)  // "Hello Westley, my name is Inigo Violet. Nice to meet you."
+  inigo.greeting(rugen)  // "Hello Count Rugen, my name is Inigo Violet. You killed my father. Prepare to die."
+
+  //Exercise 7 A
+  const basketballGame = {
+    score: 0,
+    freeThrow() {
+        this.score++;
+        return this;  
+    },
+    basket() {
+        this.score += 2;
+        return this;  
+    },
+    threePointer() {
+        this.score += 3;
+        return this;  
+    },
+    halfTime() {
+        console.log('Halftime score is '+this.score);
+        
+    }
+}
+basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime();
 
 //Excercise 7 B
-const books = [
-    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
-    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
-    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
-    { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
-    { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
-    ];
-
-    function getOldBooks() {
-        const oldBooks = books.filter(book => book.year < 1950);
-        return oldBooks;
-      }
-
-      const oldBooks = getOldBooks();
-      console.log(oldBooks); 
-    //   [
-    //     {
-    //       id: 1,
-    //       title: 'The Great Gatsby',
-    //       author: 'F. Scott Fitzgerald',
-    //       year: 1925
-    //     },
-    //     { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
-    //     {
-    //       id: 4,
-    //       title: 'Brave New World',
-    //       author: 'Aldous Huxley',
-    //       year: 1932
-    //     }
-    //   ]
-      
+const basketballGame = {
+    score: 0,
+    freeThrow() {
+        this.score++;
+        return this;
+    },
+    basket() {
+        this.score += 2;
+        return this;
+    },
+    threePointer() {
+        this.score += 3;
+        return this;
+    },
+    halfTime() {
+        console.log('Halftime score is '+this.score);
+    },
+    fullTime() {
+        console.log('Full time final score is '+this.score);
+    }
+}
+basketballGame.basket().freeThrow().freeThrow().basket().threePointer().fullTime();
 
 //Excercise 7 C
-const books = [
-    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
-    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
-    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
-    { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
-    { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
-    ];
-
-    function addGenre() {
-        const booksWithGenre = books.map(book => {
-          return {
-            ...book,
-            genre: 'classic'
-          };
-        });
-      
-        return booksWithGenre;
-      }
-
-      const booksWithGenre = addGenre();
-      console.log(booksWithGenre);
-    //   [
-    //     {
-    //       id: 1,
-    //       title: 'The Great Gatsby',
-    //       author: 'F. Scott Fitzgerald',
-    //       year: 1925,
-    //       genre: 'classic'
-    //     },
-    //     {
-    //       id: 2,
-    //       title: 'To Kill a Mockingbird',
-    //       author: 'Harper Lee',
-    //       year: 1960,
-    //       genre: 'classic'
-    //     },
-    //     {
-    //       id: 3,
-    //       title: '1984',
-    //       author: 'George Orwell',
-    //       year: 1949,
-    //       genre: 'classic'
-    //     },
-    //     {
-    //       id: 4,
-    //       title: 'Brave New World',
-    //       author: 'Aldous Huxley',
-    //       year: 1932,
-    //       genre: 'classic'
-    //     },
-    //     {
-    //       id: 5,
-    //       title: 'The Catcher in the Rye',
-    //       author: 'J.D. Salinger',
-    //       year: 1951,
-    //       genre: 'classic'
-    //     }
-    //   ]
+const basketballGame = {
+    score: 0,
+    fouls: 0,
+    freeThrow() {
+        this.score++;
+        return this;
+    },
+    basket() {
+        this.score += 2;
+        return this;
+    },
+    threePointer() {
+        this.score += 3;
+        return this;
+    },
+    foul() {
+        this.fouls++;
+        return this;
+    },
+    halfTime() {
+        console.log('Halftime score is '+this.score+' with '+this.fouls+' fouls.');
+    },
+    fullTime() {
+        console.log('Full time final score is '+this.score+' with '+this.fouls+' fouls.');
+    }
+}
+basketballGame.basket().freeThrow().foul().freeThrow().foul().basket().threePointer().halfTime();
+basketballGame.foul().basket().freeThrow().fullTime();
 
 //Excercise 7 D
-const books = [
-    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
-    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
-    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
-    { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
-    { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
-    ];
-
-    function getTitles(authorInitial) {
-        const titles = books
-          .filter(book => book.author.startsWith(authorInitial))
-          .map(book => book.title);
-      
-        return titles;
-      }  
-
-    const authorInitial = 'G'; 
-    const titles = getTitles(authorInitial);
-    console.log(titles); //['1984']
-
-//Excercise 7 E
-const books = [
-    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
-    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
-    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
-    { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
-    { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
-    ];
-
-    function latestBook() {
-        let latestBook = null;
-        
-        books.forEach(book => {
-          if (!latestBook || book.year > latestBook.year) {
-            latestBook = book;
-          }
-        });
-      
-        return latestBook;
-      }
-
-    const book = latestBook();
-    console.log(book);
-    //  {
-    //     id: 2,
-    //     title: 'To Kill a Mockingbird',
-    //     author: 'Harper Lee',
-    //     year: 1960
-    //   }
+basketballGame.freeThrow().freeThrow().basket().threePointer().foul().halfTime(); // score is 7 with 1 foul
 
 //Excercise 8 A
-const phoneBookDEF = new Map() 
-phoneBookDEF.set('David', '0477312343')
-phoneBookDEF.set('Emma', '0498221117')
-phoneBookDEF.set('Frank', '0411221182')
 
-//Excercise 8 B
-const phoneBookDEF = new Map([
-    ['David', '0477312343'],
-    ['Emma', '0498221117'],
-    ['Frank', '0411221182']
-  ]); 
+
+
+
   
-//Excercise 8 C
-const phoneBookABC = new Map() //an empty map to begin with
-phoneBookABC.set('Annabelle', '0412312343')
-phoneBookABC.set('Barry', '0433221117')
-phoneBookABC.set('Caroline', '0455221182')
-
-phoneBookABC.set('Caroline', '1234567899');
-
-console.log(phoneBookABC.get('Caroline'));
-//1234567899
-
-//Excercise 8 D
-const phoneBookABC = new Map() //an empty map to begin with
-phoneBookABC.set('Annabelle', '0412312343')
-phoneBookABC.set('Barry', '0433221117')
-phoneBookABC.set('Caroline', '0455221182')
-
-function printPhoneBook(contacts) {
-    for (let [name, number] of contacts) {
-      console.log(`Name: ${name}, Phone number: ${number}`);
-    }
-  }
   
-  printPhoneBook(phoneBookABC);
-// Name: Annabelle, Phone number: 0412312343
-// Name: Barry, Phone number: 0433221117
-// Name: Caroline, Phone number: 0455221182
-
-//Excercise 8 E
-const phoneBookABC = new Map() //an empty map to begin with
-phoneBookABC.set('Annabelle', '0412312343')
-phoneBookABC.set('Barry', '0433221117')
-phoneBookABC.set('Caroline', '0455221182')
-
-const phoneBookDEF = new Map([
-    ['David', '0477312343'],
-    ['Emma', '0498221117'],
-    ['Frank', '0411221182']
-  ]);
-
-  const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
-
-  console.log(phoneBook);
-//   Map(6) {
-//     'Annabelle' => '0412312343',
-//     'Barry' => '0433221117',
-//     'Caroline' => '0455221182',
-//     'David' => '0477312343',
-//     'Emma' => '0498221117',
-//     'Frank' => '0411221182'
-//   }
-  
-//Excercise 8 F
-const phoneBookABC = new Map() //an empty map to begin with
-phoneBookABC.set('Annabelle', '0412312343')
-phoneBookABC.set('Barry', '0433221117')
-phoneBookABC.set('Caroline', '0455221182')
-
-const phoneBookDEF = new Map([
-    ['David', '0477312343'],
-    ['Emma', '0498221117'],
-    ['Frank', '0411221182']
-  ]);
-
-  const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
-
-  for (let name of phoneBook.keys()) {
-    console.log(name);
-  }
-// Annabelle
-// Barry
-// Caroline
-// David
-// Emma
-// Frank
-
-
-//Excercise 9 A
-function sumSalary(salaries) {
-    let sum = 0;
-    for (let key in salaries) {
-      sum += salaries[key];
-    }
-    return sum;
-  }
-  
-  let salaries = {
-    "Timothy" : 35000,
-    "David" : 25000,
-    "Mary" : 55000,
-    "Christina" : 75000,
-    "James" : 43000
-  };
-  
-  console.log(sumSalary(salaries));
-  //233000
-
-
-  //Excercise 9 B
-  function boss(salaries) {
-    let max = 0;
-    let gigaChad = null;
-  
-    for (let key in salaries) {
-      if (max < salaries[key]) {
-        max = salaries[key];
-        gigaChad = key;
-      }
-    }
-  
-    return gigaChad;
-  }
-  
-  let salaries = {
-    "Timothy" : 35000,
-    "David" : 25000,
-    "Mary" : 55000,
-    "Christina" : 75000,
-    "James" : 43000
-  };
-  
-  console.log(boss(salaries));
-  //Christina
-
 
 
