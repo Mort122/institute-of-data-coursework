@@ -44,12 +44,12 @@ let result = `${a} + ${b} is ${a + b < 10 ? 'less than' : 'greater than'} 10`;
 //the += adds what is to the right of it to what is to the left and then replaces what is on the left with the new value to continue the running until the test fails (else)
 
 //Excercise 5 A
-var getGreeting = function(name) {
+const getGreeting = function(name) {
     return 'Hello ' + name + '!';
   };
 
 //Excercise 5 B
-var getGreeting = (name) => {
+const getGreeting = (name) => {
     return 'Hello ' + name + '!';
   };
 
@@ -183,11 +183,161 @@ basketballGame.foul().basket().freeThrow().fullTime();
 basketballGame.freeThrow().freeThrow().basket().threePointer().foul().halfTime(); // score is 7 with 1 foul
 
 //Excercise 8 A
+const sydney = {
+  name: 'Sydney',
+  population: 5_121_000,
+  state: 'NSW',
+  founded: '26 January 1788',
+  timezone: 'Australia/Sydney'
+  }
+
+function printProperties(obj) {
+  for (let property in obj) {
+      console.log(`${property}: ${obj[property]}`);
+  }
+}
+
+printProperties(sydney);
+
+//Excercise 8 B
+const monroe = {
+  name: 'Monroe',
+  population: 46_535,
+  region: 'South',
+  founded: '1785',
+  timezone: 'Central'
+}
+
+printProperties(monroe);
+
 
 
 
 
   
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Excercise 10 A & B & C
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.human = true;
+  }
+  const newPerson = new Person("Garrett Palma", 28);
+  const secondPerson = new Person("Dave Grohl", 54);
+
+  console.log(newPerson.name, newPerson.age, newPerson.human);
+  console.log(secondPerson.name, secondPerson.age, secondPerson.human);
+
+//Excercise 10 D
+  class AddedPerson {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.human = true;
+    }
+}
+
+const thirdPerson = new AddedPerson("Corey Taylor", 50);
+const fourthPerson = new AddedPerson("Small Child", 15);
+const fifthPerson = new AddedPerson("Drew Canterbury", 16);
+const sixthPerson = new AddedPerson("Will Canterbury", 26);
+
+
+console.log(thirdPerson.name, thirdPerson.age, thirdPerson.human);
+console.log(fourthPerson.name, fourthPerson.age, fourthPerson.human);
+console.log(fifthPerson.name, fifthPerson.age, fifthPerson.human);
+console.log(sixthPerson.name, sixthPerson.age, sixthPerson.human);
+
+Person.prototype.canDrive = function() {
+  return this.age >= 16;
+};
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
 
 
