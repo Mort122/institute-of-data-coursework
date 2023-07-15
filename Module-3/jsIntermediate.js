@@ -506,4 +506,55 @@ function sumSalary(salaries) {
   //Christina
 
 
+//Excercise 10 
+const today = new Date();
+console.log('Current time is ' + today.toLocaleTimeString())
+console.log(today.getHours() + ' hours have passed so far today')
 
+//A
+console.log(today.getMinutes() + ' minutes have passed today.')
+
+//B
+console.log(today.getSeconds() + ' seconds have passed today.')
+
+//C
+function calculateAge(birthDate) {
+    const today = new Date();
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+  
+    if (months < 0 || (months === 0 && days < 0)) {
+      years--;
+      months = (months + 12) % 12;
+    }
+  
+    if (days < 0) {
+      months--;
+      const now = new Date(today.getFullYear(), today.getMonth(), 0);
+      days = now.getDate() - birthDate.getDate() + days;
+    }
+  
+    return {
+      years: years,
+      months: months,
+      days: days
+    };
+  }
+  
+  const birthDate = new Date('1994-11-20');
+  const age = calculateAge(birthDate);
+  
+  console.log(`I am ${age.years} years, ${age.months} months, and ${age.days} days old.`);
+
+  //D
+  function daysInBetween(date1, date2) {
+    const a = new Date(date1);
+    const b = new Date(date2);
+    
+    let timeDifference = Math.abs(a.getTime() - b.getTime());
+    let daysDifference = (timeDifference / (1000 * 3600 *24))
+    return daysDifference
+  }
+
+  console.log(daysInBetween('2023-07-15', '1994-11-20'));
