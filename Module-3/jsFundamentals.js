@@ -210,86 +210,43 @@ const monroe = {
 
 printProperties(monroe);
 
+//Excercise 9
 
+let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
+let dog1 = 'Bingo';
+let cat1 = { name: 'Fluffy', breed: 'Siberian' };
 
+//A
+let moreSports = [...teamSports];
+moreSports.push('Football');
+moreSports.unshift('Basketball');
 
+console.log(moreSports); //[ 'Basketball', 'Hockey', 'Cricket', 'Volleyball', 'Football' ]
 
-  
-  
+//B
+let dog2 = [...dog1];
+dog2 = 'Piper';
 
+console.log(dog2); //Piper
 
+//C
+let cat2 = {...cat1};
+cat2.name = 'Tucker';
+cat2.breed = 'Bengal';
 
+console.log(cat2); //{ name: 'Tucker', breed: 'Bengal' }
 
+//D
 
+//[ 'Basketball', 'Hockey', 'Cricket', 'Volleyball', 'Football' ]
+//Piper
+//{ name: 'Tucker', breed: 'Bengal' }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//E
+console.log(teamSports); //[ 'Hockey', 'Cricket', 'Volleyball' ]
+console.log(dog1); //Bingo
+console.log(cat1); //{ name: 'Fluffy', breed: 'Siberian' }
 
 
 //Excercise 10 A & B & C
@@ -305,12 +262,16 @@ function Person(name, age) {
   console.log(secondPerson.name, secondPerson.age, secondPerson.human);
 
 //Excercise 10 D
-  class AddedPerson {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-        this.human = true;
-    }
+class AddedPerson {
+  constructor(name, age) {
+      this.name = name;
+      this.age = age;
+      this.human = true;
+  }
+
+  canDrive() {
+      return this.age >= 16;
+  }
 }
 
 const thirdPerson = new AddedPerson("Corey Taylor", 50);
@@ -319,14 +280,16 @@ const fifthPerson = new AddedPerson("Drew Canterbury", 16);
 const sixthPerson = new AddedPerson("Will Canterbury", 26);
 
 
-console.log(thirdPerson.name, thirdPerson.age, thirdPerson.human);
-console.log(fourthPerson.name, fourthPerson.age, fourthPerson.human);
-console.log(fifthPerson.name, fifthPerson.age, fifthPerson.human);
-console.log(sixthPerson.name, sixthPerson.age, sixthPerson.human);
+console.log(thirdPerson.name, thirdPerson.age, thirdPerson.human); //Corey Taylor 50 true
+console.log(fourthPerson.name, fourthPerson.age, fourthPerson.human); //Small Child 15 true
+console.log(fifthPerson.name, fifthPerson.age, fifthPerson.human); //Drew Canterbury 16 true
+console.log(sixthPerson.name, sixthPerson.age, sixthPerson.human); //Will Canterbury 26 true
 
-Person.prototype.canDrive = function() {
-  return this.age >= 16;
-};
+
+console.log(thirdPerson.canDrive()); //true
+console.log(fourthPerson.canDrive()); //false
+console.log(fifthPerson.canDrive()); //true
+console.log(sixthPerson.canDrive()); //true
 
   
   
