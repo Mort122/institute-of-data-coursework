@@ -114,6 +114,72 @@ clearTimeout(timeoutId);
 
 //Excercise 3
 
+//A
+function debounce(func) {
+    let timeoutID;
+    return function() {
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout(() => func(), 1000);
+    }
+  }
+  
+  function printMe() {
+    console.log("This took too long. I'm going to a different website!");
+  }
+  
+  printMe = debounce(printMe);
+  
+  setTimeout( printMe, 100);
+  setTimeout( printMe, 200);
+  setTimeout( printMe, 300);
+  //This took too long. I'm going to a different website! (after 1000 milliseconds)
+
+  //B
+  function debounce(action, milliseconds) {
+    let timeoutID;
+    return function() {
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout(() => action(), milliseconds);
+    }
+  }
+  
+  function printMe() {
+    console.log("This took too long. I'm going to a different website!");
+  }
+  
+  printMe = debounce(printMe, 10000);
+  
+  setTimeout( printMe, 100);
+  setTimeout( printMe, 200);
+  setTimeout( printMe, 300);
+
+  //This took too long. I'm going to a different website! (after 10000 milliseconds)
+  
+//C
+function debounce(action, milliseconds) {
+    let timeoutID;
+    return function() {
+      let context = this;
+      let args = arguments;
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout(() => action.apply(context, args), milliseconds);
+    }
+  }
+  
+  function printMe(msg) {
+    console.log("This took too long. I'm going to a different website!", msg);
+  }
+  
+  printMe = debounce(printMe, 10000);
+  
+  setTimeout(() => printMe("Not bad!"), 100);
+  setTimeout(() => printMe("I'm still waiting..."), 200);
+  setTimeout(() => printMe("Seriously, this is taking forever."), 300); //This took too long. I'm going to a different website! Seriously, this is taking forever.
+
+//Excercise 4
+
+  
+
 
   
   
