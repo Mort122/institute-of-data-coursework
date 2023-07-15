@@ -102,95 +102,66 @@ function camelCase(cssProp) {
 //Excercise 5 A
 // A  This code does not work because the variables are not defined
 
-//Excercise 5 B
-// Had to install decimal.js
-const Decimal = require('decimal.js');
-
+//B
 function currencyAddition(float1, float2) {
-  const decimal1 = new Decimal(float1);
-  const decimal2 = new Decimal(float2);
-
-
-  const result = decimal1.plus(decimal2);
-  return result.toNumber();
+  return (Math.round(float1 * 100) + Math.round(float2 * 100)) / 100;
 }
 
+console.log(0.9 == currencyAddition(0.4, 0.5)); //True
 
-const float1 = 0.1;
-const float2 = 0.2;
-const sum = currencyAddition(float1, float2);
-console.log(sum); //0.3
-
-//Excercise 5 C
-const Decimal = require('decimal.js');
-
+//C
 function currencyOperation(float1, float2, operation) {
-  const decimal1 = new Decimal(float1);
-  const decimal2 = new Decimal(float2);
-
   let result;
-  switch (operation) {
-    case '+':
-      result = decimal1.plus(decimal2);
-      break;
-    case '-':
-      result = decimal1.minus(decimal2);
-      break;
-    case '/':
-      result = decimal1.dividedBy(decimal2);
-      break;
-    case '*':
-      result = decimal1.times(decimal2);
-      break;
-    default:
-      throw new Error('Invalid operation');
+  switch(operation) {
+      case '+':
+          result = (Math.round(float1 * 100) + Math.round(float2 * 100)) / 100;
+          break;
+      case '-':
+          result = (Math.round(float1 * 100) - Math.round(float2 * 100)) / 100;
+          break;
+      case '*':
+          result = (Math.round(float1 * 100) * Math.round(float2 * 100)) / 10000;
+          break;
+      case '/':
+          if (float2 === 0) throw new Error('Division by zero');
+          result = Math.round((float1 / float2) * 100) / 100;
+          break;
+      default:
+          throw new Error('Invalid operation');
   }
-
-  return result.toNumber();
+  return result;
 }
 
-const float1 = 0.4;
-const float2 = 0.3;
-const operation = '+';
-const result = currencyOperation(float1, float2, operation);
-console.log(result); // 0.7
+console.log(0.6 == currencyOperation(0.3, 0.3, '+')); //True
+console.log(0.0 == currencyOperation(0.3, 0.3, '-')); //True
+console.log(0.09 == currencyOperation(0.3, 0.3, '*')); //True
+console.log(1.0 == currencyOperation(0.3, 0.3, '/')); //True
 
-//Excercise 5 D
-const Decimal = require('decimal.js');
-
-function currencyOperation(float1, float2, operation, numDecimals) {
-  const decimal1 = new Decimal(float1);
-  const decimal2 = new Decimal(float2);
-
-  Decimal.set({ precision: numDecimals });
-
-  let result;
-  switch (operation) {
-    case '+':
-      result = decimal1.plus(decimal2);
-      break;
-    case '-':
-      result = decimal1.minus(decimal2);
-      break;
-    case '/':
-      result = decimal1.dividedBy(decimal2);
-      break;
-    case '*':
-      result = decimal1.times(decimal2);
-      break;
-    default:
-      throw new Error('Invalid operation');
+//D
+function currencyOperationWithDecimals(float1, float2, operation, numDecimals) {
+  if (numDecimals < 1 || numDecimals > 10) {
+      throw new Error('Invalid number of decimal places');
   }
-
-  return result.toNumber();
+  const decimal = Math.pow(10, numDecimals);
+  let result;
+  switch(operation) {
+      case '+':
+          result = (Math.round(float1 * decimal) + Math.round(float2 * decimal)) / decimal;
+          break;
+      case '-':
+          result = (Math.round(float1 * decimal) - Math.round(float2 * decimal)) / decimal;
+          break;
+      case '*':
+          result = (Math.round(float1 * decimal) * Math.round(float2 * decimal)) / (decimal * decimal);
+          break;
+      case '/':
+          result = Math.round(float1 * decimal) / Math.round(float2 * decimal);
+          break;
+      default:
+          throw new Error('Invalid operation');
+  }
+  return result;
 }
-
-const float1 = 0.2;
-const float2 = 0.6;
-const operation = '+';
-const numDecimals = 2;
-const result = currencyOperation(float1, float2, operation, numDecimals);
-console.log(result); //0.8
 
 //Excercise 6
 function unique(duplicatesArray) {
