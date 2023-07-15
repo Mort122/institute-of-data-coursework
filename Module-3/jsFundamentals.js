@@ -1,3 +1,11 @@
+//    I AM UNABLE TO DELETE THIS. PLEASE DO NOT GRADE THIS FILE. THE INTERMEDIATE FILE IS THE CORRECT ONE. -GP
+
+
+
+
+
+
+
 //Exercise 1
 function capitalizeFirstLetterOfEachWord(str) {
     return str.replace(/\b\w/g, function(char) {
