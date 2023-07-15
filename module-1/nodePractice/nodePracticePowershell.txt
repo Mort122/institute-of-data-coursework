@@ -1,0 +1,22 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Test> cd module-1-labs
+PS C:\Users\Test\module-1-labs> cd NodePractice
+PS C:\Users\Test\module-1-labs\NodePractice> node nodePractice.js
+{
+  score: -2,
+  comparative: -0.6666666666666666,
+  calculation: [ { stupid: -2 } ],
+  tokens: [ 'cats', 'are', 'stupid' ],
+  words: [ 'stupid' ],
+  positive: [],
+  negative: [ 'stupid' ]
+}
+PS C:\Users\Test\module-1-labs\NodePractice>
+
+
+
+
