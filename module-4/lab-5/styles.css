@@ -1,0 +1,29 @@
+#shape {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    animation-name: slide;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slide {
+    0% {
+        top: 0;
+        background-color: red;
+        border-radius: 0%;
+    }
+    50% {
+        top: 92.3%;
+        background-color: blue;
+        border-radius: 50%;
+    }
+    100% {
+        top: 0;
+        background-color: red;
+        border-radius: 0%;
+    }
+}
