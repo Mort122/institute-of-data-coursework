@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Knoe Logo */
+
+.logo {
+    box-sizing: border-box;
+    display: block;
+    float: none;
+    line-height: 24px;
+    /* position: below; */
+    z-index: auto;
+}
+
+.nav-items {
+    box-sizing: border-box;
+    display: flex;
+    float: none;
+    line-height: 1.5;
+    position: relative;
+    z-index: auto;
+    padding: .5rem 1rem;
+    background-color: #3751a2;
+    color: #fff;
+}
+
+/* links inside the navebar */
+.nav-items a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 25%;
+    text-align: center;
+    font-weight: 400;
+}
+
+.body {
+    background: antiquewhite;
+    /* display: inline-block; */
+}
+
+.middleContainer {
+    width: 1000px;
+    display: flex;
+    height: 500px;
+}
+
+.top-left-image {
+    width: 500px;
+    height: 500px;
+}
+
+.textBox {
+    font-weight: 700;
+    font-size: 2rem;
+    box-sizing: border-box;
+    color: #212529;
+    text-align: left;
+    margin-bottom: .5rem;
+    line-height: 1.2;
+}
+
+#leftContainer {
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    color: white;
+    float: left;
+}
+
+
+
+#farRightContainer {
+    width: 350px;
+    height: 100vh;
+    display: flex;
+    color: white;
+    float: right;
+}
+
+/* the . infront of name is for classes. If you are targeting elements dont include the . */
+
+
+.masthead {
+    background-image: url("https://www.knoe.com/pf/resources/images/mastheads/backgrounds/knoe.jpg?d=341");
+    /* background-image: url("./assets/images/backgroundImageforHeader.avif"); */
+}
+
+
+
+
+.row {
+    float: below;
+    padding: 0px;
+    display: flex;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    border-radius: 90%;
+}
+
+.row p {
+    float: right;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    box-sizing: border-box;
+    
+}
+
+
+main {
+    display: flex;
+    height: 425px;
+}
+
+.main1 {
+    padding-left: 15.7%;
+}
+
+.weatherReport {
+    text-align: left;
+    font-size: large;
+}
+
+
+.column1 {
+    float: left;
+    width: 250px;
+}
+
+.column1 p {
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.multiBoxes {
+    font-size: 20px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.gridBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gridBox > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #3751a2;
+    text-align: center;
+    
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+}
+
+.footer a {
+    display: inline-block;
+    text-align: center;
+}
