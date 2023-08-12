@@ -178,8 +178,327 @@ function debounce(action, milliseconds) {
 
 //Excercise 4
 
-  
+//A
+function printFibonacci() {
+  let a = 0, b = 1;
+
+  console.log(b); 
+
+  setInterval(function() {
+    const nextNumber = a + b;
+    console.log(nextNumber);
+    a = b;
+    b = nextNumber;
+  }, 1000); // Interval of 1 second
+}
+
+//B
+function printTimeout() {
+  let a = 0, b = 1;
+
+  console.log(b); 
+
+  function printNext() {
+    const nextNumber = a + b;
+    console.log(nextNumber);
+    a = b;
+    b = nextNumber;
+
+    setTimeout(printNext, 1000); // waits 1 second before printing
+  }
+
+  setTimeout(printNext, 1000); // starts after 1 second
+}
+
+//C
+function printLimit(limit) {
+  let a = 0, b = 1, count = 0;
+
+  const intervalID = setInterval(function() {
+    if (count >= limit) {
+      clearInterval(intervalID);
+      return;
+    }
+    
+    const nextNumber = a + b;
+    console.log(nextNumber);
+    a = b;
+    b = nextNumber;
+
+    count++;
+  }, 1000); 
+}
+
+//Excercise 5
+//this isnt bound to the car object
+
+//A
+let car = {
+  make: "Porsche",
+  model: "911",
+  year: 1964,
+  description() {
+      console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+  }
+};
+
+car.description(); 
+
+setTimeout(() => {
+  car.description();
+}, 200); 
+
+//B
+let car = {
+  make: "Porsche",
+  model: "911",
+  year: 1964,
+  description() {
+      console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+  }
+};
+
+car.description(); 
+
+setTimeout(() => {
+  car.description();
+}, 200);
+
+//C
+let car = {
+  make: "Porsche",
+  model: "911",
+  year: 1964,
+  description() {
+      console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+  }
+};
+
+car.description(); 
+
+setTimeout(() => {
+  car.description();
+}, 200);
+
+let newCar = {...car, year: 2023 };
+newCar.description();
+
+//D
+let car = {
+  make: "Porsche",
+  model: "911",
+  year: 1964,
+  description() {
+      console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+  }
+};
+
+car.description(); 
+
+setTimeout(car.description.bind(car), 200); 
+
+//E
+let car = {
+  make: "Porsche",
+  model: '911',
+  year: 1964,
+  description() {
+      console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+  }
+};
+
+car.description(); 
+setTimeout(car.description.bind(car), 200); 
+
+let newCar = Object.assign({}, car);
+newCar.year = 2023;
+
+let updatedCar = Object.assign({}, car);
+updatedCar.model = "Carrera";
+
+setTimeout(updatedCar.description.bind(updatedCar), 200); 
+
+//Excercise 6
+
+//A
+Function.prototype.delay = function(ms) {
+  let func = this;
+  return function(a, b) {
+      setTimeout(() => func(a, b), ms);
+  };
+};
+
+function multiply(a, b) {
+  console.log( a * b );
+}
+
+multiply.delay(500)(5, 5); 
+
+//B
+Function.prototype.delay = function(ms) {
+  let func = this;
+  return function(...args) {
+      setTimeout(() => func.apply(this, args), ms);
+  };
+};
+
+function multiply(a, b, c) {
+  console.log(a * b * c);
+}
+
+multiply.delay(500)(5, 5, 2); 
+
+//C
+Function.prototype.delay = function(ms) {
+  let func = this;
+  return function(...args) {
+      setTimeout(() => func.apply(this, args), ms);
+  };
+};
+
+function multiply(a, b, c, d) {
+  console.log(a * b * c * d);
+}
+
+multiply.delay(500)(5, 5, 2, 2); 
 
 
+//Excercise 7
+
+//A
+function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+Person.prototype.toString = function() {
+  return `Person's name: ${this.name}, age: ${this.age}, gender: ${this.gender}`;
+}
+
+const person1 = new Person('Garrett Palma', 28, 'male')
+console.log('person1: '+person1) 
+
+
+//B
+function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+Person.prototype.toString = function() {
+  return `Person's name: ${this.name}, age: ${this.age}, gender: ${this.gender}`;
+}
+
+const person1 = new Person('Garrett Palma', 28, 'male')
+console.log('person1: '+person1) 
+
+const.person2 = new Person('Will Canterbury', 26, 'male')
+console.log('person2: '+person2)
+
+const.person3 = new Person('Drew Canterbury', 16, 'male')
+console.log('person3: '+person3)
+
+//C & D
+function Person(name, age, gender) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+Person.prototype.toString = function() {
+  return `Person's name: ${this.name}, age: ${this.age}, gender: ${this.gender}`;
+}
+
+function Student(name, age, gender, cohort) {
+  Person.call(this, name, age, gender);
+  this.cohort = cohort;
+}
+
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.constructor = Student;
+
+
+Student.prototype.toString = function() {
+  return `Student's name: ${this.name}, age: ${this.age}, gender: ${this.gender}, cohort: ${this.cohort}`;
+}
+
+const student1 = new Student('Garrett Palma', 28, 'male', '2023')
+console.log('student1: '+student1) 
+
+const student2 = new Student('Will Canterbury', 26, 'male', '2023')
+console.log('student2: '+student2) 
+
+
+//Excercise 8
+
+class DigitalClock {
+  constructor(prefix) {
+  this.prefix = prefix;
+  }
+  display() {
+  let date = new Date();
+  //create 3 variables in one go using array destructuring
+  let [hours, mins, secs] = [date.getHours(), date.getMinutes(),
+  date.getSeconds()];
+  if (hours < 10) hours = '0' + hours;
+  if (mins < 10) mins = '0' + mins;
+  if (secs < 10) secs = '0' + secs;
+  console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+  }
+  stop() {
+  clearInterval(this.timer);
+  }
+  start() {
+  this.display();
+  this.timer = setInterval(() => this.display(), 1000);
+  }
+  }
+  const myClock = new DigitalClock('my clock:')
+  myClock.start()
+
+  //A
+  class PrecisionClock extends DigitalClock {
+    constructor(prefix, precision = 1000) {
+      super(prefix);
+      this.precision = precision;
+    }
   
+    start() {
+      this.display();
+      this.timer = setInterval(() => this.display(), this.precision);
+    }
+  }
+  
+  const myPreciseClock = new PrecisionClock('My precise clock:', 500);
+  myPreciseClock.start();
+
+  //B
+
+    class DigitalClock {
+      constructor(prefix) {
+      this.prefix = prefix;
+      }
+      display() {
+      let date = new Date();
+      let [hours, mins, secs] = [date.getHours(), date.getMinutes(), //creating 3 variables
+      date.getSeconds()];
+      if (hours < 10) hours = '0' + hours;
+      if (mins < 10) mins = '0' + mins;
+      if (secs < 10) secs = '0' + secs;
+      console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+      }
+      stop() {
+      clearInterval(this.timer);
+      }
+      start() {
+      this.display();
+      this.timer = setInterval(() => this.display(), 1000);
+      }
+      }
+      const myClock = new DigitalClock('my clock:')
+      myClock.start()
   
