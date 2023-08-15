@@ -7,9 +7,13 @@ const app = express()
 const port = 3000
 const public_dir = 'public'
 
+app.use(express.json());
 app.use('/', express.static(public_dir));
 app.use('/mytest', testRoute);
 app.use('/calculator', calculatorRoute);
+
+
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
