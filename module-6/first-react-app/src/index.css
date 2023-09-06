@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -70,7 +70,7 @@ button:focus-visible {
 }
 
 /* BigCats starts here */
-.button-group {
+/* .button-group {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -85,16 +85,7 @@ button:focus-visible {
 
 .cats-list > * {
   margin: 10px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;  /* Stack the inputs vertically */
-  max-width: 275px;  /* Limit the form width */
-  margin: 15px auto;
-}
-
-form input, form button {
+}form button {
   padding: 10px;
   margin-bottom: 10px;  
   border: 2px solid #ccc;
@@ -138,6 +129,15 @@ form label {
   text-align: right; 
   margin-right: 10px;
 }
+
+form {
+  display: flex;
+  flex-direction: column;  /* Stack the inputs vertically */
+  /* max-width: 275px;  /* Limit the form width */
+  /* margin: 15px auto;
+}
+
+form input,   */
 
 
 
