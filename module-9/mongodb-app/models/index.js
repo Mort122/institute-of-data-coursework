@@ -1,4 +1,10 @@
 'use strict'
-module.exports = {
-User: require('./user')
+
+const User = require('./user');
+const Post = require('./posts')
+
+
+module.exports =  {
+    User,
+    Post
 };
