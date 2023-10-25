@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Chat App</title>
+</head>
+<body>
+    <h2>Welcome to Socket Chat</h2>
+    <script src="/socket.io/socket.io.js"></script>
+    <input id="name" placeholder="Enter your name" />
+    <div id="chatBox"></div>
+    <div id="typingBox"></div>
+    <div id="usersBox"></div>
+    <input id="message" autocomplete="off" oninput="isTyping()" />
+    <button onclick="sendMessage()">Send</button>
+        <p id="typing-notification"></p>
+    
+    <script>
+        let socket = io();
+
+        socket.on('message', (msg) => {
+            let chatBox = document.getElementById('chatBox');
+            chatBox.innerHTML += '<br>' + msg;
+        });
+
+        function sendMessage() {
+            let message = document.getElementById('message').value;
+            let name = document.getElementById('name').value || 'Anonymous';
+            socket.emit('chat message', { message, name });
+            let chatBox = document.getElementById('chatBox');
+            chatBox.innerHTML += `<br>${name}: ${message}`;
+            document.getElementById('message').value = '';
+        }
+
+        function isTyping() {
+            const name = document.getElementById('name').value || 'Anonymous';
+            socket.emit('typing', name);
+        }
+
+        socket.on('typing', (msg) => {
+            const typingBox = document.getElementById('typingBox');
+            typingBox.textContent = `${msg.name} is typing...`;
+            setTimeout(() => {
+                typingBox.textContent = '';
+            }, 2000); 
+        });
+
+        socket.on('users online', (users) => {
+            let usersBox = document.getElementById('usersBox');
+            usersBox.innerHTML = 'Users online: ' + users.join(', ');
+        });
+
+        window.onload = function() {
+            const name = document.getElementById('name').value || 'Anonymous';
+            socket.emit('online', name);
+}
+    </script>
+    
+</body>
+</html>
