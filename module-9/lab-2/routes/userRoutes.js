@@ -8,15 +8,15 @@ router.get('/', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
-    Controllers.userController.createUsers(req.body, res)
+    Controllers.userController.createUsers(req.body, res);
 })
 
 router.put('/:id', (req, res) => {
-    Controllers.userController.updateUser(req, res)
+    Controllers.userController.updateUser(req, res);
 })
 
 router.delete('/:id', (req, res) => {
-    Controllers.userController.deleteUser(req, res)
+    Controllers.userController.deleteUser(req, res);
 })
 
 module.exports = router;

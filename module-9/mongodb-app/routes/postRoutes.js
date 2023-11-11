@@ -27,6 +27,10 @@ router.post('/post/:postId/comment', (req, res) => {
     commentsController.addComment(req, res);
 });
 
+// router.get('/comments', (req, res) => {
+//     commentsController.getCommentById.getComment(req, res);
+// }); 
+
 router.put('/post/:postId/comment/:commentId', (req, res) => {
     commentsController.updateComment(req, res);
 });

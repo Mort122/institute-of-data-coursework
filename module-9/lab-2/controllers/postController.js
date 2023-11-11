@@ -1,5 +1,6 @@
 const Models = require("../models");
 
+
 const createPost = (req, res) => {
     const { title, description, image } = req.body;
 

@@ -1,6 +1,5 @@
 const { DataTypes, Model } = require("sequelize");
 const dbConnect = require("../dbConnect");
-
 const sequelizeInstance = dbConnect.Sequelize;
 
 class User extends Model { }

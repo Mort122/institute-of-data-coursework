@@ -61,12 +61,12 @@ const deleteComment = async (req, res) => {
     try {
         const post = await PostModel.findById(postId);
         const comment = post.comments.id(commentId);
-        if(comment && comment.user.toString() === req.user._id.toString()) {
+        if(comment) {
             comment.remove();
             await post.save();
             res.send({result: 200, message: "Comment deleted successfully!"});
         } else {
-            res.send({result: 400, message: "Comment not found or unauthorized!"});
+            res.send({result: 400, message: "Comment not found!"});
         }
     } catch (err) {
         console.log(err);
